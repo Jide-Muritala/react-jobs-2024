@@ -6,3 +6,16 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+Start localhost:
+- npm install
+- npm run dev
+
+Start json-server:
+- npm run server
+
+Error while starting json-server may be caused by old version of node
+To Update node:
+- nvm install node
+- nvm use node
