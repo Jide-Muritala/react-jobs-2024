@@ -11,7 +11,7 @@ const Hero = () => {
             Become a React Dev
           </h1>
           <p className="my-4 text-xl text-white">
-            Find the React job that fits your skills and needs
+            Find the React job that fits your skills
           </p>
         </div>
       </div>
