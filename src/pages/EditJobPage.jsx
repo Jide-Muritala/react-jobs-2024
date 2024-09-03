@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useParams, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import jobsData from '../jobs.json';
 
 const EditJobPage = ({ updateJobSubmit }) => {
-  const job = useLoaderData();
+  // const job = useLoaderData();
   const [title, setTitle] = useState(job.title);
   const [type, setType] = useState(job.type);
   const [location, setLocation] = useState(job.location);
@@ -16,6 +17,9 @@ const EditJobPage = ({ updateJobSubmit }) => {
 
   const navigate = useNavigate();
   const { id } = useParams();
+
+   // Find the job in the local JSON data based on the ID
+   const job = jobsData.find(job => job.id === Number(id));
 
   const submitForm = (e) => {
     e.preventDefault();

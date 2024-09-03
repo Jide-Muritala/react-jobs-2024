@@ -4,12 +4,15 @@ import { useParams, useLoaderData, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import jobsData from '../jobs.json';
 
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const job = useLoaderData();
+  // Find the job by ID from the imported jobs data
+  const job = jobsData.jobs.find((job) => job.id === id);
+  // const job = useLoaderData();
 
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm(
@@ -23,7 +26,7 @@ const JobPage = ({ deleteJob }) => {
     toast.success('Job deleted successfully');
 
     navigate('/jobs');
-  }
+  };
 
   /* const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true); */
@@ -142,10 +145,11 @@ const JobPage = ({ deleteJob }) => {
     )
 };
 
-const jobLoader = async ({params}) => {
+/* const jobLoader = async ({params}) => {
   const res = await fetch(`/api/jobs/${params.id}`);
   const data = await res.json();
   return data;
-};
+}; */
 
-export { JobPage as default, jobLoader };
+// export { JobPage as default, jobLoader };
+export default JobPage;
